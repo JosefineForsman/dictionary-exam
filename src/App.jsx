@@ -10,7 +10,6 @@ function App() {
   const [isFavoritesVisible, setFavoritesVisible] = useState(false);
 
   const toggleFavorites = () => {
-    // add this function
     setFavoritesVisible(!isFavoritesVisible);
   };
 
