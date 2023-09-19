@@ -1,0 +1,45 @@
+.my-word-list {
+    padding: 0.5rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(181, 181, 243, 0.476);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    color: var(--darkGray-color);
+   
+  }
+  .my-word-list__text-blue{
+    color:blue;
+  }
+  
+  .my-word-list:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .my-word-list__text {
+    font-size: 12px;
+  }
+  
+  .my-word-list__container {
+    height: 300px;
+  }
+  
+  .my-word-list__btn {
+    font-family: poppins;
+    font-size: 10px;
+    background-color: white;
+    border: 0.5px solid gray;
+    border-radius: 50px;
+  }
+  
+  .my-word-list__btn:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .audio-player {
+    width: 300px;
+    height: 35px;
+  }
