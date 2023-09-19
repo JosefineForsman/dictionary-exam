@@ -5,9 +5,6 @@ import DisplayWord from "./components/DisplayWord/DisplayWord";
 import Header from "./components/Header/Header";
 import MyWordList from "./components/MyWordList/MyWorldList";
 
-// I want to have my app-component as clean as i possibly can,
-// that's why i chose to render components in here
-
 function App() {
   const [inputSearch, setInputSearch] = useState([]);
   const [isFavoritesVisible, setFavoritesVisible] = useState(false);
