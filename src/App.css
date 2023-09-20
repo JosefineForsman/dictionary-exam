@@ -4,5 +4,11 @@
   flex-direction: column;
   background-color: var(--paleWhite-color);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+}
+.app.dark{
+  background-color: rgb(74, 74, 74);
+}
+body{
+  min-height: 100vh;
 }
