@@ -7,7 +7,39 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 500px;
     color: var(--darkGray-color);
+    z-index: 1;
+    min-height: 100vh;
    
+  }
+  .my-word-list__container {
+    animation: slideInFromLeft 0.5s ease-in;
+  }
+  .my-word-list.dark{
+    background-color: black;
+    color:white;
+  }
+  
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  .remove-star {
+    display: inline-block;
+    cursor: pointer;
+    color: gray;
+  }
+  
+  .remove-star.filled {
+    color: gold;
+  }
+  .remove-star:hover{
+    color: gray;
   }
   .my-word-list__text-blue{
     color:blue;
