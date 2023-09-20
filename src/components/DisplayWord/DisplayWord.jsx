@@ -1,26 +1,26 @@
 import { LikedWordContext } from "../LikedWordContext/LikedWordContext";
 import "./DisplayWord.css";
 import { useContext, useState } from "react";
+import { ThemeContext } from "../ThemeContext/ThemeContext";
 
 // this component render all the info from the API and also checks if i got an array as an response
 // and checks if there is data in the objects inside the objects. if so, we render.
 function DisplayWord({ inputSearch }) {
   const [likedWord, setLikedWord] = useState([]);
-  const { dispatch } = useContext(LikedWordContext);
+  const dispatch = useContext(LikedWordContext);
+  const { theme } = useContext(ThemeContext);
   console.log(inputSearch);
 
-  const handleStarClick = (word) => {
-    setLikedWord(word);
-    console.log(likedWord);
+  function handleStarClick(word) {
     // add a new favorite word to my reducer.
     dispatch({ type: "added", payload: word });
-  };
+  }
 
   return (
     <div className="word-details">
       {Array.isArray(inputSearch) && inputSearch.length > 0 // map only if inputSearch is an array and if the length is higher than 0.
         ? inputSearch.map((searchResult, index) => (
-            <div key={index} className="display-words">
+            <div key={index} className={`display-words ${theme}`}>
               <article
                 className={`star ${searchResult === likedWord ? "filled" : ""}`} // change star-color when star is being clicked and word is added.
                 onClick={() => handleStarClick(searchResult)}

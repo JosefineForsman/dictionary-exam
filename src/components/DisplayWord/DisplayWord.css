@@ -11,6 +11,9 @@ body {
 .star.filled {
   color: gold;
 }
+.star:hover{
+  color: gold;
+}
 
 .word-details {
   padding: 20px;
@@ -40,6 +43,10 @@ body {
   width: 600px;
   padding: 1rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+.display-words.dark{
+  background-color: black;
+  color:white;
 }
 
 .meaning {
