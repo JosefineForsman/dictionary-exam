@@ -1,5 +1,4 @@
 import "./LikedWordContext.css";
-
 import { createContext } from "react";
 import { useReducer } from "react";
 
@@ -17,7 +16,7 @@ function LikedWordContextProvider({ children }) {
     </LikedWordContext.Provider>
   );
 }
-let id = 1;
+let id = 0;
 const likedWordReducer = (likedWord, action) => {
   console.log(likedWord, action);
 
