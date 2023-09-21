@@ -22,10 +22,7 @@ function App() {
         <MyWordList />
       ) : (
         <div>
-          <SearchBar
-            inputSearch={inputSearch}
-            setInputSearch={setInputSearch}
-          />
+          <SearchBar setInputSearch={setInputSearch} />
           <DisplayWord inputSearch={inputSearch} />
         </div>
       )}
