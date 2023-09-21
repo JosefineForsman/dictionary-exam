@@ -2,27 +2,39 @@ import { LikedWordContext } from "../LikedWordContext/LikedWordContext";
 import "./DisplayWord.css";
 import { useContext, useState } from "react";
 import { ThemeContext } from "../ThemeContext/ThemeContext";
+import Phonetics from "./Phonetic/Phonetic";
+import Meaning from "./Meaning/Meaning";
 
 // this component render all the info from the API and also checks if i got an array as an response
 // and checks if there is data in the objects inside the objects. if so, we render.
 function DisplayWord({ inputSearch }) {
   const [likedWord, setLikedWord] = useState([]);
-  const dispatch = useContext(LikedWordContext);
+  const [showMeanings, setshowMeanings] = useState(false);
+  const { dispatch } = useContext(LikedWordContext);
   const { theme } = useContext(ThemeContext);
   console.log(inputSearch);
 
   function handleStarClick(word) {
+    const isLiked = likedWord.includes(word);
+
+    if (isLiked) {
+      setLikedWord(likedWord.filter((w) => w !== word));
+    } else {
+      setLikedWord([...likedWord, word]);
+    }
     // add a new favorite word to my reducer.
     dispatch({ type: "added", payload: word });
   }
 
   return (
     <div className="word-details">
-      {Array.isArray(inputSearch) && inputSearch.length > 0 // map only if inputSearch is an array and if the length is higher than 0.
+      {Array.isArray(inputSearch) && inputSearch.length > 0
         ? inputSearch.map((searchResult, index) => (
             <div key={index} className={`display-words ${theme}`}>
               <article
-                className={`star ${searchResult === likedWord ? "filled" : ""}`} // change star-color when star is being clicked and word is added.
+                className={`star ${
+                  likedWord.includes(searchResult) ? "filled" : ""
+                }`}
                 onClick={() => handleStarClick(searchResult)}
               >
                 <i className="fas fa-star"></i>
@@ -34,44 +46,9 @@ function DisplayWord({ inputSearch }) {
                 <p className="my-word-list__text">{searchResult.phonetic}</p>
               </div>
               {searchResult.meanings.map((meaning, index) => (
-                <div key={index} className="meaning">
-                  <p className="part-of-speech">{meaning.partOfSpeech}</p>
-                  <strong>Definition:</strong>
-                  <ol>
-                    {meaning.definitions.map((definition, index) => (
-                      <div key={index} className="definition">
-                        <li>{definition.definition}</li>
-                        {definition.example && ( // display only if data is accoured in example.
-                          <p className="example">
-                            <strong>Example:</strong> {definition.example}
-                          </p>
-                        )}
-                        {definition.synonyms &&
-                          definition.synonyms.length > 0 && ( // display only if data is accoured in synonyms.
-                            <p className="synonyms">
-                              <strong>Synonyms:</strong>{" "}
-                              {definition.synonyms.join(", ")}
-                            </p>
-                          )}
-                      </div>
-                    ))}
-                  </ol>
-                </div>
+                <Meaning key={index} meaning={meaning} />
               ))}
-              {searchResult.phonetics.map((phonetic, index) => (
-                <div key={index} className="phonetics">
-                  {phonetic.audio &&
-                    phonetic.audio.length > 0 && ( // display only if data is accoured in audio.
-                      <div>
-                        <audio
-                          className="audio-player"
-                          src={phonetic.audio}
-                          controls
-                        ></audio>
-                      </div>
-                    )}
-                </div>
-              ))}
+              <Phonetics phonetics={searchResult.phonetics} />
             </div>
           ))
         : ""}
