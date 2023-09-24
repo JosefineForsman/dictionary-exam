@@ -9,7 +9,7 @@ body {
   color: gray;
 }
 .star.filled {
-  color: gold;
+  color: rgb(255, 215, 0);
 }
 .star:hover{
   color: gold;
