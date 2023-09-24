@@ -28,7 +28,7 @@ function SearchBar({ setInputSearch }) {
       }
     } catch (error) {
       setMessage("An error occurred. Please try again.");
-      throw new Error();
+      throw error;
     }
   }
 
