@@ -9,7 +9,6 @@ function Header({ toggleFavorites }) {
   return (
     <header className={`header ${theme}`}>
       <h1 className="header__title">Word Finder</h1>
-      <p className="header__text">Let's look up some words for you!</p>
       <div className="toggle-switch">
         <label className="switch">
           <input type="checkbox" onClick={toggleTheme} />
