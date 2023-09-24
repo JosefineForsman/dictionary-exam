@@ -19,15 +19,57 @@ display: none;
     cursor: pointer;
     color: var(--blue--color);
 }
+.my-word-list__text-phonetics{
+    margin-left:1rem;
+}
 .title{
     padding:0;
     margin: 0;
     font-weight: 200;
     font-size: 17px;
     margin-left:1rem;
+    font-family: poppins;
+    color:black;
+    font-weight: 600;
 }
 .list-item-container{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.my-word{
+    font-family: poppins;
+    color:black;
+    font-size:15px;
+}
+.my-word-list__text-example {
+    width: fit-content;
+    /* background-color: aliceblue; */
+    font-family: 'Lora', serif;
+    list-style: none;
+    font-size:14px;
+}
+.my-word-list__text-antonyms{
+    background-color: rgb(252, 252, 222);
+    width: fit-content;
+}
+.li-item{
+    font-style: italic;
+    font-family: 'Lora', serif;
+    font-size:14px;
+}
+.li-item-synonyms{
+    font-family: 'Lora', serif;
+    font-size:14px;
+    list-style: none;
+    /* background-color: rgb(229, 253, 245); */
+    width: fit-content;
+    font-style: italic;
+}
+.my-word-list__text-definition{
+    /* font-size: 17px; */
+    /* color:black; */
+    padding: 0;
+    margin: 0;
+    margin-bottom:1rem;
 }

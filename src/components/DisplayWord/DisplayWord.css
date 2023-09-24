@@ -1,5 +1,6 @@
 body {
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: 'Lora', serif;
   font-size: 16px;
 }
 .star {
@@ -12,6 +13,9 @@ body {
 }
 .star:hover{
   color: gold;
+}
+.display-words__input-search{
+  font-family: poppins;
 }
 
 .word-details {
@@ -26,6 +30,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  color:black;
 }
 .display-words__name{
   margin-right: 5rem;
@@ -57,17 +62,22 @@ body {
   font-weight: bold;
   font-size: 18px;
   font-weight: 500;
+  font-family: 'Lora', serif;
+  color: rgb(1, 60, 153);
 }
 
 .example {
-  font-style: italic;
+  /* margin-left:1rem; */
+  width: fit-content;
+  background-color: aliceblue;
+  /* font-style: italic; */
   color: var(--blue--color);
+  font-family: 'Lora', serif;
 }
 
 .synonyms {
   color: var(--green--color);
 }
-
 
 .phonetics {
   margin-top: 20px;
@@ -84,9 +94,6 @@ body {
   font-style: italic;
   text-align: center;
 }
-strong{
-  font-weight: 550;
-}
 .definitions-btn{
   border:none;
   border-bottom: 1px solid gray ;
@@ -97,4 +104,14 @@ strong{
 }
 .definitions-btn:hover{
   cursor: pointer;
+}
+li{
+  font-family: 'Lora', serif;
+  letter-spacing: 0.5px;
+}
+strong{
+  font-weight: bold;
+  color:rgb(82, 83, 83);
+  font-family: 'Lora', serif;
+  /* background-color: #a52727; */
 }

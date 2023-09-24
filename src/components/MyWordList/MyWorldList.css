@@ -1,39 +1,35 @@
 .my-word-list {
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: white;
     margin-bottom: 1rem;
     border: 1px solid rgba(181, 181, 243, 0.476);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 600px;
     color: var(--darkGray-color);
     transition: all 0.3s;
   }
- 
-  .wrapper{
-    min-height: 100%;
-    margin: 0;
-  }
+.my-word-list__favorite-title{
+  text-align: center;
+  font-weight: 300;
+  
+}
   .my-word-list__container {
-    animation: slideInFromLeft 0.5s ease-in;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
     min-height: 100%;
     padding: 0;
     margin: 0;
+    width: 100vw;
+  }
+  .wrapper{
+    width: 100%;
   }
   .my-word-list.dark{
     background-color: black;
     color:white;
   }  
-  @keyframes slideInFromLeft {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    100% {
-      transform: translateX(0);
-      opacity: 1;
-    }
-  }
   .remove-star {
     display: inline-block;
     cursor: pointer;
@@ -53,10 +49,11 @@
   .my-word-list:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
+ 
   
   .my-word-list__text {
-    font-size: 12px;
-    margin-left:2rem;
+    font-size: 14px;
+    /* margin-left:2rem; */
   }
   .my-word-list__btn {
     font-family: poppins;
@@ -76,3 +73,24 @@
     width: 300px;
     height: 35px;
   }
+  .meaning__part-of-speech{
+    font-size: 20px;
+    font-family: 'Lora', serif;
+    
+    color: rgb(1, 60, 153);
+  }
+  .my-list-strong{
+    font-size: 14px;
+    color: black;
+    font-family: 'Lora', serif;
+  }
+  .my-word-list__text-synonymus{
+    /* background-color: rgb(194, 243, 226); */
+    font-size: 14px;
+    font-family: 'Lora', serif;
+    width: fit-content;
+}
+.meaning__definition-text{
+  font-size: 17px;
+  color: black;
+}
