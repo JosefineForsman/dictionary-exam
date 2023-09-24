@@ -21,19 +21,17 @@ const likedWordReducer = (likedWord, action) => {
   console.log(likedWord, action);
 
   switch (action.type) {
-    case "added": // add word
-      return [
-        ...likedWord,
-        {
-          id: id++, // different id for every word so we also can delete it later if we want.
-          word: action.payload,
-        },
-      ];
-    case "deleted": // delete word
+    case "ADD": // add word
+      const newWord = {
+        id: id++, // olika id för varje ord så att det kan tas bort senare om så önskas
+        word: action.payload,
+      };
+      return [...likedWord, newWord]; // Lägg till det nya ordobjektet i arrayen
+    case "DELETE": // delete word
       return likedWord.filter((word) => word.id !== action.payload);
 
     default:
-      return;
+      return likedWord;
   }
 };
 export default LikedWordContextProvider;
