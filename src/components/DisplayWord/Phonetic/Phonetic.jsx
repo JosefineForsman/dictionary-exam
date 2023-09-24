@@ -9,6 +9,7 @@ function Phonetics({ phonetics }) {
           {phonetic.audio && phonetic.audio.length > 0 && (
             <div>
               <audio
+                data-testid="audio"
                 className="audio-player"
                 src={phonetic.audio}
                 controls

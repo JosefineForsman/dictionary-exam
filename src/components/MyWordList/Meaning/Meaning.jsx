@@ -9,8 +9,8 @@ function Meaning({ meaning }) {
 
   return (
     <div className="meaning">
-      <p className="part-of-speech">{meaning.partOfSpeech}</p>
-      <strong>Definition:</strong>
+      <p className="meaning__part-of-speech">{meaning.partOfSpeech}</p>
+      <strong className="my-list-strong">Definition:</strong>
       <ol>
         {meaning.definitions
           .slice(0, showAll ? meaning.definitions.length : 3)
@@ -31,6 +31,18 @@ function Meaning({ meaning }) {
             <Definition key={index} definition={definition} />
           ))}
         </ol>
+      )}
+      {meaning.antonyms && meaning.antonyms.length > 0 && (
+        <div>
+          <strong className="my-list-strong">Antonyms:</strong>
+          <ul>
+            {meaning.antonyms.map((antonym, index) => (
+              <li className="li-item" key={index}>
+                {antonym}
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
     </div>
   );

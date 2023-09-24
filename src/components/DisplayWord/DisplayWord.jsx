@@ -1,7 +1,8 @@
-import { LikedWordContext } from "../LikedWordContext/LikedWordContext";
+import LikedWordContextProvider, {
+  LikedWordContext,
+} from "../LikedWordContext/LikedWordContext";
 import "./DisplayWord.css";
 import { useContext, useState } from "react";
-import { ThemeContext } from "../ThemeContext/ThemeContext";
 import Phonetics from "./Phonetic/Phonetic";
 import Meaning from "./Meaning/Meaning";
 
@@ -11,27 +12,27 @@ function DisplayWord({ inputSearch }) {
   const [likedWord, setLikedWord] = useState([]);
   const [showMeanings, setshowMeanings] = useState(false);
   const { dispatch } = useContext(LikedWordContext);
-  const { theme } = useContext(ThemeContext);
   console.log(inputSearch);
 
   function handleStarClick(word) {
     const isLiked = likedWord.includes(word);
 
     if (isLiked) {
-      setLikedWord(likedWord.filter((w) => w !== word));
+      setLikedWord(likedWord.filter((selectedWord) => selectedWord !== word));
     } else {
       setLikedWord([...likedWord, word]);
     }
     // add a new favorite word to my reducer.
-    dispatch({ type: "added", payload: word });
+    dispatch({ type: "ADD", payload: word });
   }
 
   return (
     <div className="word-details">
       {Array.isArray(inputSearch) && inputSearch.length > 0
         ? inputSearch.map((searchResult, index) => (
-            <div key={index} className={`display-words ${theme}`}>
+            <div key={index} className={`display-words`}>
               <article
+                data-testid="star"
                 className={`star ${
                   likedWord.includes(searchResult) ? "filled" : ""
                 }`}

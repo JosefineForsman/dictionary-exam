@@ -1,15 +1,13 @@
 import "./MyWorldList.css";
 import { LikedWordContext } from "../LikedWordContext/LikedWordContext";
-import { useContext, useState } from "react";
-import { ThemeContext } from "../ThemeContext/ThemeContext";
+import { useContext } from "react";
 import WordItem from "./WordItem/WordItem";
 
 // This  component is displaying the liked words from the user and also rendering a delete btn
 // if the user wants to delete a word.
 function MyWordList() {
-  const { word } = useContext(LikedWordContext);
-  const { dispatch } = useContext(LikedWordContext);
-  const { theme } = useContext(ThemeContext);
+  const { word, dispatch } = useContext(LikedWordContext);
+  console.log(word);
   console.log("LikedWordContext data:", word);
 
   const handleDeleteClick = (id) => {
@@ -19,23 +17,22 @@ function MyWordList() {
       }
       return wordItem;
     });
-    dispatch({ type: "deleted", payload: id, updatedWords });
+    dispatch({ type: "DELETE", payload: id, updatedWords });
   };
   return (
     <div className="wrapper">
+      <h3 className="my-word-list__favorite-title">Your favorite words:</h3>
       <div className="my-word-list__container">
-        <h3>Favorites:</h3>
         {Array.isArray(word) && word.length > 0 ? (
           word.map((wordItem, index) => (
             <WordItem
               key={index}
               wordItem={wordItem}
-              theme={theme}
               handleDeleteClick={handleDeleteClick}
             />
           ))
         ) : (
-          <p>You don't have any favorite words.</p>
+          <p className="wrapper-p">You don't have any favorite words.</p>
         )}
       </div>
     </div>

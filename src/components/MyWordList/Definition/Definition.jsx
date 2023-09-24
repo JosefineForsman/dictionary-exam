@@ -3,13 +3,23 @@ function Definition({ definition }) {
     <div>
       <li className="my-word-list__text">{definition.definition}</li>
       {definition.example && (
-        <p className="my-word-list__text ">
-          <strong>Example:</strong> {definition.example}
+        <p className="my-word-list__text-example ">
+          <strong className="my-list-strong">Example:</strong>{" "}
+          {definition.example}
         </p>
       )}
       {definition.synonyms && definition.synonyms.length > 0 && (
-        <p className="my-word-list__text">
-          <strong>Synonyms:</strong> {definition.synonyms.join(", ")}
+        <p className="my-word-list__text-synonymus">
+          <strong className="my-list-strong">Synonyms:</strong>{" "}
+          {definition.synonyms.join(", ")}
+        </p>
+      )}
+      {definition.antonyms && definition.antonyms.length > 0 && (
+        <p className="my-word-list__text-antonyms">
+          <strong className="my-list-strong">Antonyms:</strong>
+          <ul>
+            <li key={index}>{definition.antonyms.join(", ")}</li>
+          </ul>
         </p>
       )}
     </div>
