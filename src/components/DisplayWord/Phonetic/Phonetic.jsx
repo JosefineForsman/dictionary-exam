@@ -8,6 +8,7 @@ function Phonetics({ phonetics }) {
         <div key={index}>
           {phonetic.audio && phonetic.audio.length > 0 && (
             <div>
+              <h3>{phonetic.text}</h3>
               <audio
                 data-testid="audio"
                 className="audio-player"

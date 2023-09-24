@@ -5,6 +5,7 @@ function Phonetic({ phonetics }) {
       <div className="phonetics">
         {phonetics.audio && phonetics.audio.length > 0 && (
           <div>
+            <h3 className="my-word-phonetic">{phonetics.text}</h3>
             <audio
               className="audio-player"
               src={phonetics.audio}
