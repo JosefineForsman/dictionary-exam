@@ -6,8 +6,10 @@ import Header from "./components/Header/Header";
 import MyWordList from "./components/MyWordList/MyWorldList";
 import { ThemeContext } from "./components/ThemeContext/ThemeContext";
 import LikedWordContextProvider from "./components/LikedWordContext/LikedWordContext";
-import ThemeContextProvider from "./components/ThemeContext/ThemeContext";
 
+// App is rendering the main part of the program.
+// It manages search input and show the words for the user.
+// I put the likedwordcontextprovider here to reach the  add and delete functions of words all over the program.
 function App() {
   const [inputSearch, setInputSearch] = useState([]);
   const [isFavoritesVisible, setFavoritesVisible] = useState(false);

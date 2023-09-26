@@ -7,8 +7,6 @@ function WordItem({ wordItem, theme, handleDeleteClick }) {
   const [toggleInfo, setToggleInfo] = useState(false);
   const isLiked = wordItem?.isLiked || false;
 
-  console.log(wordItem.word);
-
   return (
     <div className={`my-word-list ${theme}`}>
       <div className="list-item-container">

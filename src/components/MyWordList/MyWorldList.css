@@ -45,15 +45,11 @@
   .my-word-list__text-blue{
     color:blue;
   }
-  
   .my-word-list:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
- 
-  
   .my-word-list__text {
     font-size: 14px;
-    /* margin-left:2rem; */
   }
   .my-word-list__btn {
     font-family: poppins;
@@ -84,13 +80,22 @@
     color: black;
     font-family: 'Lora', serif;
   }
-  .my-word-list__text-synonymus{
-    /* background-color: rgb(194, 243, 226); */
+  .my-word-list__text-synonymus, .my-word-list__text-antonyms{
     font-size: 14px;
     font-family: 'Lora', serif;
     width: fit-content;
 }
+
 .meaning__definition-text{
   font-size: 17px;
   color: black;
+}
+.my-word-phonetic{
+  font-size: 14px;
+}
+.phonetics{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
