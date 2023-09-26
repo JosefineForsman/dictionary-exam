@@ -7,6 +7,7 @@ function Phonetic({ phonetics }) {
           <div>
             <h3 className="my-word-phonetic">{phonetics.text}</h3>
             <audio
+              data-testid="audio"
               className="audio-player"
               src={phonetics.audio}
               controls
