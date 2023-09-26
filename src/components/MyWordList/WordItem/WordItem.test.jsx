@@ -3,7 +3,7 @@ import { setupServer } from "msw/node";
 import { rest } from "msw";
 import { render, screen, fireEvent } from "@testing-library/react";
 import WordItem from "./WordItem";
-import mockMyWords from "../../../test/mockMyWords.json";
+import mockMyWords from "../../../test/mocks/mockMyWords.json";
 import LikedWordContextProvider from "../../LikedWordContext/LikedWordContext";
 import userEvent from "@testing-library/user-event";
 
@@ -12,7 +12,7 @@ const server = setupServer(
   rest.get(
     "https://api.dictionaryapi.dev/api/v2/entries/en/hello",
     (req, res, ctx) => {
-      return res(ctx.json({ word: "mockMyWords" }));
+      return res(ctx.json({ word: mockMyWords }));
     }
   )
 );
@@ -63,5 +63,35 @@ describe(WordItem, () => {
     const starArticle = screen.getByTestId("remove-star");
     const user = userEvent.setup();
     await user.click(starArticle);
+  });
+  it("should show all information about a liked word", () => {
+    const { container } = render(
+      <LikedWordContextProvider>
+        <WordItem
+          wordItem={mockMyWords[0]}
+          theme={vi.fn()}
+          handleDeleteClick={vi.fn()}
+        />
+      </LikedWordContextProvider>
+    );
+    screen.debug();
+    const h1 = screen.getByRole("heading", { name: /hello/i });
+    const definitions = screen.getAllByRole("listitem");
+    const audioElement = screen.getAllByTestId("audio");
+    const exampleElements = container.querySelectorAll(
+      "p.my-word-list__text-example"
+    );
+    const seeMoreBtn = screen.getByRole("button", { name: /see more/i });
+    const phonetics = screen.getAllByRole("heading", { level: 3 });
+
+    expect(h1).toBeInTheDocument();
+    expect(screen.getByText("noun")).toBeInTheDocument();
+    expect(screen.getByText("verb")).toBeInTheDocument();
+    expect(screen.getByText("interjection")).toBeInTheDocument();
+    expect(definitions.length).toBe(5);
+    expect(audioElement).toHaveLength(2);
+    expect(exampleElements.length).toBe(3);
+    expect(seeMoreBtn).toBeInTheDocument();
+    expect(phonetics.length).toBe(2);
   });
 });

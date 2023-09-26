@@ -4,12 +4,11 @@ import userEvent from "@testing-library/user-event";
 import DisplayWord from "./DisplayWord";
 import DisplayMessage from "../DisplayMessage/DisplayMessage";
 import LikedWordContextProvider from "../LikedWordContext/LikedWordContext";
-import { server } from "../../test/mockServer";
-import mockWords from "../../test/mockWords.json";
+import { server } from "../../test/mocks/mockServer";
+import mockWords from "../../test/mocks/mockWords.json";
 
 beforeAll(() => server.listen());
 afterAll(() => server.close());
-const user = userEvent.setup();
 
 describe("DisplayWord", () => {
   it("should display words when inputSearch is provided", () => {
@@ -62,6 +61,7 @@ describe("DisplayWord", () => {
     const audioElement = screen.getAllByTestId("audio");
     const exampleElements = container.querySelectorAll("p.example");
     const seeMoreBtn = screen.getByRole("button", { name: /see more/i });
+    const phonetics = screen.queryAllByRole("heading", { level: 3 });
 
     expect(h1).toBeInTheDocument();
     expect(screen.getByText("noun")).toBeInTheDocument();
@@ -71,6 +71,7 @@ describe("DisplayWord", () => {
     expect(audioElement).toHaveLength(2);
     expect(exampleElements.length).toBe(3);
     expect(seeMoreBtn).toBeInTheDocument();
+    expect(phonetics.length).toBe(2);
     screen.debug();
   });
 });

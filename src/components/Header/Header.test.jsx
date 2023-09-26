@@ -5,7 +5,7 @@ import Header from "./Header";
 describe(Header, () => {
   it("should render header", () => {
     render(<Header />);
-    const message = screen.getByRole("heading", { level: 1 });
+    const message = screen.queryByText("Word finder");
     expect(message).toBeInTheDocument;
   });
   it("should have a toggle button dark/light mode", () => {
@@ -15,7 +15,7 @@ describe(Header, () => {
   });
   it("should have a favorite-list", () => {
     render(<Header />);
-    const favoriteList = screen.queryByText("my favorites");
+    const favoriteList = screen.getByText("My favorites", { exact: false });
     expect(favoriteList).toBeInTheDocument;
   });
 });
