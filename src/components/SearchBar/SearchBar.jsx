@@ -1,5 +1,5 @@
 import "./SearchBar.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import DisplayMessage from "../DisplayMessage/DisplayMessage";
 import { fetchDictionary } from "../../fetch/fetchDictionary";
 
@@ -18,7 +18,6 @@ function SearchBar({ setInputSearch }) {
           "You are trying to search with an empty input. Please try again bud."
         );
       } else {
-        console.log(data);
         setMessage(data.message);
         setResoution(data.resolution);
         setTitle(data.title);

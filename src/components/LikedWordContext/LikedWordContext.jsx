@@ -18,8 +18,6 @@ function LikedWordContextProvider({ children }) {
 }
 let id = 0;
 const likedWordReducer = (likedWord, action) => {
-  console.log(likedWord, action);
-
   switch (action.type) {
     case "ADD": // add word
       const newWord = {

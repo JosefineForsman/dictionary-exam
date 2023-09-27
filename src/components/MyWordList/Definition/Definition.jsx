@@ -15,11 +15,9 @@ function Definition({ definition }) {
         </p>
       )}
       {definition.antonyms && definition.antonyms.length > 0 && (
-        <p className="my-word-list__text-antonyms">
-          <strong className="my-list-strong">Antonyms:</strong>
-          <ul>
-            <li key={index}>{definition.antonyms.join(", ")}</li>
-          </ul>
+        <p className="my-word-list__text-antonymus">
+          <strong className="my-list-strong">Antonyms:</strong>{" "}
+          {definition.antonyms.join(", ")}
         </p>
       )}
     </div>

@@ -7,8 +7,6 @@ import WordItem from "./WordItem/WordItem";
 // if the user wants to delete a word.
 function MyWordList() {
   const { word, dispatch } = useContext(LikedWordContext);
-  console.log(word);
-  console.log("LikedWordContext data:", word);
 
   const handleDeleteClick = (id) => {
     const updatedWords = word.map((wordItem) => {

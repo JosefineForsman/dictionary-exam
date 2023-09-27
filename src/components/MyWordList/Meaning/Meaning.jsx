@@ -25,24 +25,13 @@ function Meaning({ meaning }) {
           </button>
         </div>
       )}
+
       {showAll && meaning.definitions.length > 3 && (
         <ol>
           {meaning.definitions.slice(3).map((definition, index) => (
             <Definition key={index} definition={definition} />
           ))}
         </ol>
-      )}
-      {meaning.antonyms && meaning.antonyms.length > 0 && (
-        <div>
-          <strong className="my-list-strong">Antonyms:</strong>
-          <ul>
-            {meaning.antonyms.map((antonym, index) => (
-              <li className="li-item" key={index}>
-                {antonym}
-              </li>
-            ))}
-          </ul>
-        </div>
       )}
     </div>
   );

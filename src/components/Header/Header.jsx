@@ -5,7 +5,7 @@ import { useContext } from "react";
 // this components has a lot of visual functionality, toggle dark/light mode + toggle favorite words.
 function Header({ toggleFavorites }) {
   const { theme, toggleTheme } = useContext(ThemeContext);
-
+  // lägg till icon?
   return (
     <header className={`header ${theme}`}>
       <h1 className="header__title">Word Finder</h1>
