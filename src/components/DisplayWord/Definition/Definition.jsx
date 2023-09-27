@@ -12,6 +12,11 @@ function Definition({ definition }) {
           <strong>Synonyms:</strong> {definition.synonyms.join(", ")}
         </p>
       )}
+      {definition.antonyms && definition.antonyms.length > 0 && (
+        <p className="antonyms">
+          <strong>Antonyms:</strong> {definition.antonyms.join(", ")}
+        </p>
+      )}
     </div>
   );
 }
