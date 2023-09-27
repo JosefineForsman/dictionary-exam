@@ -72,6 +72,17 @@ describe("DisplayWord", () => {
     expect(exampleElements.length).toBe(3);
     expect(seeMoreBtn).toBeInTheDocument();
     expect(phonetics.length).toBe(2);
-    screen.debug();
+  });
+  it("should show more information when pressing on see more button", async () => {
+    render(
+      <LikedWordContextProvider>
+        <DisplayWord inputSearch={mockWords} />
+      </LikedWordContextProvider>
+    );
+    expect(screen.getAllByText(/Example:/).length).toBe(3);
+    const seeMoreButton = screen.getByRole("button", { name: /See More/i });
+    const user = userEvent.setup();
+    await user.click(seeMoreButton);
+    expect(screen.getAllByText(/Example:/).length).toBe(5);
   });
 });

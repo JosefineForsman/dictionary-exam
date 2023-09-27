@@ -31,19 +31,11 @@ describe(SearchBar, () => {
     render(<SearchBar setInputSearch={vi.fn()} />);
     const input = screen.getByRole("textbox");
 
-    await user.type(input, "dog");
-    fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
+    await user.type(input, "dog{Enter}");
 
     await waitFor(() => {
-      expect(input).toHaveTextContent("");
+      expect(input).toHaveValue("");
     });
-  });
-  it("should be able to search and display results", () => {
-    render(<SearchBar setInputSearch={vi.fn()} />);
-    const input = screen.getByRole("textbox");
-
-    fireEvent.change(input, { target: { value: "dog" } });
-    fireEvent.keyDown(input, { key: "Enter", code: "Enter" });
     screen.debug();
   });
 });

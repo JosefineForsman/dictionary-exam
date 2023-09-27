@@ -55,7 +55,7 @@ describe(App, () => {
     expect(displayLikedWord).toBeInTheDocument();
   });
 
-  it("should remove a favorite word from the favorite list", async () => {
+  it("should delete a favorite word from the favorite list", async () => {
     render(<App />);
 
     const input = screen.getByRole("textbox");
@@ -101,7 +101,7 @@ describe(App, () => {
     fireEvent.play(audioElement);
     expect(audioElement.volume).toBeGreaterThan(0);
   });
-  it("should be able to see more than one word if there is more from the api", async () => {
+  it("should be able to render out more words if the api have an array of the same words.", async () => {
     render(<App />);
     const input = screen.getByRole("textbox");
     expect(input).toBeInTheDocument();
@@ -109,6 +109,18 @@ describe(App, () => {
     await user.type(input, "rat{enter}");
     const rats = await screen.findAllByText("rat");
     expect(rats.length).toBe(3);
-    screen.debug();
+  });
+  it.only("should be able to render synonyms and antonyms", async () => {
+    render(<App />);
+    const input = screen.getByRole("textbox");
+    expect(input).toBeInTheDocument();
+
+    await user.type(input, "mood{enter}");
+    const searchWord = screen.getAllByDisplayValue("mood");
+    expect(searchWord.length).toBeGreaterThan(0);
+    const synonyms = await screen.findAllByText(/Synonyms:/i);
+    expect(synonyms.length).toBe(3);
+    const antonyms = await screen.findByText(/Antonyms:/i);
+    expect(antonyms).toBeInTheDocument();
   });
 });

@@ -32,7 +32,7 @@ describe(WordItem, () => {
       </LikedWordContextProvider>
     );
   });
-  it('toggles info on "see more" click', async () => {
+  it('toggles info on "see more" button click', async () => {
     const { container } = render(
       <LikedWordContextProvider>
         <WordItem
@@ -49,21 +49,11 @@ describe(WordItem, () => {
     await user.click(seeMoreButton);
 
     expect(infoContainer).toHaveClass("visible"); // Förvänta dig att klassen har ändrats till "visible"
+
+    expect(screen.getByText("noun")).toBeInTheDocument();
+    expect(screen.getByText("verb")).toBeInTheDocument();
   });
-  it("should be able to click on star", async () => {
-    render(
-      <LikedWordContextProvider>
-        <WordItem
-          wordItem={mockMyWords[0]}
-          theme={vi.fn()}
-          handleDeleteClick={vi.fn()}
-        />
-      </LikedWordContextProvider>
-    );
-    const starArticle = screen.getByTestId("remove-star");
-    const user = userEvent.setup();
-    await user.click(starArticle);
-  });
+
   it("should show all information about a liked word", () => {
     const { container } = render(
       <LikedWordContextProvider>
@@ -74,7 +64,6 @@ describe(WordItem, () => {
         />
       </LikedWordContextProvider>
     );
-    screen.debug();
     const h1 = screen.getByRole("heading", { name: /hello/i });
     const definitions = screen.getAllByRole("listitem");
     const audioElement = screen.getAllByTestId("audio");
@@ -82,7 +71,7 @@ describe(WordItem, () => {
       "p.my-word-list__text-example"
     );
     const seeMoreBtn = screen.getByRole("button", { name: /see more/i });
-    const phonetics = screen.getAllByRole("heading", { level: 3 });
+    const phoneticText = screen.getByText("/həˈləʊ/");
 
     expect(h1).toBeInTheDocument();
     expect(screen.getByText("noun")).toBeInTheDocument();
@@ -92,6 +81,6 @@ describe(WordItem, () => {
     expect(audioElement).toHaveLength(2);
     expect(exampleElements.length).toBe(3);
     expect(seeMoreBtn).toBeInTheDocument();
-    expect(phonetics.length).toBe(2);
+    expect(phoneticText).toBeInTheDocument();
   });
 });

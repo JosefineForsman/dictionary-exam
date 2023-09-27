@@ -5,8 +5,8 @@ import Header from "./Header";
 describe(Header, () => {
   it("should render header", () => {
     render(<Header />);
-    const message = screen.queryByText("Word finder");
-    expect(message).toBeInTheDocument;
+    const title = screen.getByText("Word Finder");
+    expect(title).toBeInTheDocument;
   });
   it("should have a toggle button dark/light mode", () => {
     render(<Header />);
