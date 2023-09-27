@@ -99,3 +99,10 @@
   justify-content: center;
   flex-direction: column;
 }
+
+.my-word-list__text-example  {
+  width: fit-content;
+  background-color: aliceblue;
+  color: var(--blue--color);
+  font-family: 'Lora', serif;
+}
