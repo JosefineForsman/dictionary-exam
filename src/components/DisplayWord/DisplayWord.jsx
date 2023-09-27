@@ -10,9 +10,7 @@ import Meaning from "./Meaning/Meaning";
 // and checks if there is data in the objects inside the objects. if so, we render.
 function DisplayWord({ inputSearch }) {
   const [likedWord, setLikedWord] = useState([]);
-  const [showMeanings, setshowMeanings] = useState(false);
   const { dispatch } = useContext(LikedWordContext);
-  console.log(inputSearch);
 
   function handleStarClick(word) {
     const isLiked = likedWord.includes(word);
