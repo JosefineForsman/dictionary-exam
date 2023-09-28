@@ -67,10 +67,8 @@ body {
 }
 
 .example {
-  /* margin-left:1rem; */
   width: fit-content;
   background-color: aliceblue;
-  /* font-style: italic; */
   color: var(--blue--color);
   font-family: 'Lora', serif;
 }
@@ -113,5 +111,4 @@ strong{
   font-weight: bold;
   color:rgb(82, 83, 83);
   font-family: 'Lora', serif;
-  /* background-color: #a52727; */
 }

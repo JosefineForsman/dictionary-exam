@@ -1,4 +1,3 @@
-import "./LikedWordContext.css";
 import { createContext } from "react";
 import { useReducer } from "react";
 
@@ -21,12 +20,12 @@ const likedWordReducer = (likedWord, action) => {
   switch (action.type) {
     case "ADD": // add word
       const newWord = {
-        id: id++, // olika id för varje ord så att det kan tas bort senare om så önskas
+        id: id++, // makes a different id for each new added word
         word: action.payload,
       };
-      return [...likedWord, newWord]; // Lägg till det nya ordobjektet i arrayen
-    case "DELETE": // delete word
-      return likedWord.filter((word) => word.id !== action.payload);
+      return [...likedWord, newWord];
+    case "DELETE":
+      return likedWord.filter((word) => word.id !== action.payload); // delete word with implemented id.
 
     default:
       return likedWord;
