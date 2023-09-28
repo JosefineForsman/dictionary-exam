@@ -1,4 +1,3 @@
-import "./ThemeContext.css";
 import { createContext, useState } from "react";
 
 // This component, ThemeContextProvider, manages the application theme using the Context API.

@@ -3,9 +3,9 @@ import { setupServer } from "msw/node";
 import { rest } from "msw";
 import { render, screen } from "@testing-library/react";
 import WordItem from "./WordItem";
+import userEvent from "@testing-library/user-event";
 import mockMyWords from "../../../test/mocks/mockMyWords.json";
 import LikedWordContextProvider from "../../LikedWordContext/LikedWordContext";
-import userEvent from "@testing-library/user-event";
 
 // This test file contains unit tests for the WordItem component. WordItem is responsible
 // for rendering individual word items in the "My Word List." These tests cover the rendering
@@ -49,11 +49,11 @@ describe(WordItem, () => {
     );
     const user = userEvent.setup();
     const infoContainer = container.querySelector(".info-container");
-    expect(infoContainer).toHaveClass("hidden"); // Förvänta dig att klassen är "hidden" från början
+    expect(infoContainer).toHaveClass("hidden");
     const seeMoreButton = screen.getByText("See more");
     await user.click(seeMoreButton);
 
-    expect(infoContainer).toHaveClass("visible"); // Förvänta dig att klassen har ändrats till "visible"
+    expect(infoContainer).toHaveClass("visible");
 
     expect(screen.getByText("noun")).toBeInTheDocument();
     expect(screen.getByText("verb")).toBeInTheDocument();

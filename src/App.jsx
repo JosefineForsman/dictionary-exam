@@ -10,6 +10,7 @@ import LikedWordContextProvider from "./components/LikedWordContext/LikedWordCon
 // App is rendering the main part of the program.
 // It manages search input and show the words for the user.
 // The LikedWordContextProvider is used to manage the state of liked words across the entire application.
+
 function App() {
   const [inputSearch, setInputSearch] = useState([]);
   const [isFavoritesVisible, setFavoritesVisible] = useState(false);

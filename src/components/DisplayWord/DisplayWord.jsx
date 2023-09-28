@@ -1,6 +1,4 @@
-import LikedWordContextProvider, {
-  LikedWordContext,
-} from "../LikedWordContext/LikedWordContext";
+import { LikedWordContext } from "../LikedWordContext/LikedWordContext";
 import "./DisplayWord.css";
 import { useContext, useState } from "react";
 import Phonetics from "./Phonetic/Phonetic";
@@ -10,14 +8,11 @@ import Meaning from "./Meaning/Meaning";
 // the functions make it possible for the user to mark words as favorites with a likedWord list using my
 // LikedWordContextProver.
 
-// I made components to render my maps function so it becomes easier to read my code.
-
 function DisplayWord({ inputSearch }) {
   const [likedWord, setLikedWord] = useState([]);
   const { dispatch } = useContext(LikedWordContext);
 
   function handleStarClick(word) {
-    // this function toggle my star with filled color or not when being pressed.
     const isLiked = likedWord.includes(word);
 
     if (isLiked) {

@@ -1,5 +1,4 @@
-import { createContext } from "react";
-import { useReducer } from "react";
+import { createContext, useReducer } from "react";
 
 export const LikedWordContext = createContext(null);
 

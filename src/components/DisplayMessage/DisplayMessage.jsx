@@ -1,6 +1,7 @@
 import "./DisplayMessage.css";
 
 // this component display messages to the user, what happend and why something went wrong.
+
 function DisplayMessage({ title, message, resolution }) {
   return (
     <div className="display-messages">
