@@ -1,3 +1,7 @@
+// This component, WordItem, is responsible for rendering individual word items
+// in the "My Word List." It displays the word's title, allows users to toggle
+// additional information, and provides the option to remove the word from the list.
+
 import "./WordItem.css";
 import { useState } from "react";
 import Meaning from "../Meaning/Meaning";

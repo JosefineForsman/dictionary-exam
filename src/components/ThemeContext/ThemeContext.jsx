@@ -1,7 +1,10 @@
 import "./ThemeContext.css";
 import { createContext, useState } from "react";
 
-// This component toggle my theme from dark/light with useContext.
+// This component, ThemeContextProvider, manages the application theme using the Context API.
+// It allows toggling between light and dark themes and provides the theme state and toggle function
+// to the components through the ThemeContext.
+
 export const ThemeContext = createContext({
   theme: "light",
   toggleTheme: (theme) => {},

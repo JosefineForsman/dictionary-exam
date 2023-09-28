@@ -1,3 +1,8 @@
+// render information about Meanings.
+// Only shows the three first defintiions, and if the user wants to see more, press see more button.
+// Ensures that it displays information using ternary operators.
+// If there is no information, it does not display that section.
+
 import { useState } from "react";
 import Definition from "../Definition/Definition";
 function Meaning({ meaning }) {

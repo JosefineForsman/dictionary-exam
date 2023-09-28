@@ -1,3 +1,4 @@
+// This function fetches data from Dictionary API based on the users inputSearch.
 export async function fetchDictionary(inputSearch) {
     if (!inputSearch) {
       return null;

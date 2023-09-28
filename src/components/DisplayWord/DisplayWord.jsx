@@ -6,13 +6,18 @@ import { useContext, useState } from "react";
 import Phonetics from "./Phonetic/Phonetic";
 import Meaning from "./Meaning/Meaning";
 
-// this component render all the info from the API and also checks if i got an array as an response
-// and checks if there is data in the objects inside the objects. if so, we render.
+// this component is responsible for displaying and interacting with the dictionary from the API.
+// the functions make it possible for the user to mark words as favorites with a likedWord list using my
+// LikedWordContextProver.
+
+// I made components to render my maps function so it becomes easier to read my code.
+
 function DisplayWord({ inputSearch }) {
   const [likedWord, setLikedWord] = useState([]);
   const { dispatch } = useContext(LikedWordContext);
 
   function handleStarClick(word) {
+    // this function toggle my star with filled color or not when being pressed.
     const isLiked = likedWord.includes(word);
 
     if (isLiked) {

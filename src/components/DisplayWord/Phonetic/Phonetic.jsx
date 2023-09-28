@@ -1,4 +1,6 @@
-// Phonetics.js
+// Renders information about phonetics.
+// Ensures that it displays information using ternary operators.
+// If there is no information, it does not display that section.
 import React from "react";
 
 function Phonetics({ phonetics }) {

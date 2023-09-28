@@ -1,3 +1,6 @@
+// Renders information about  word, including definitions, examples, synonyms, and antonyms.
+// Ensures that it displays information using ternary operators.
+// If there is no information, it does not display that section.
 function Definition({ definition }) {
   return (
     <div className="definition">

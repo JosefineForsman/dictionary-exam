@@ -1,3 +1,7 @@
+// render information about a word but only shows three definitions.
+// If you want to see more definitions you can click the see more button and all
+// definitions will be visile.
+
 import { useState } from "react";
 import Definition from "../Definition/Definition";
 

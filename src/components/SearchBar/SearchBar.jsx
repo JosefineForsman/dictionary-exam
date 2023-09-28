@@ -3,7 +3,10 @@ import { useState } from "react";
 import DisplayMessage from "../DisplayMessage/DisplayMessage";
 import { fetchDictionary } from "../../fetch/fetchDictionary";
 
-// The functionality in this component is to fetch the api, and tell the user if something unexpected happend.
+// This component, SearchBar, is responsible for fetching data from an API based on user input,
+// and it displays any relevant messages or search results. It allows users to search for words,
+// handles API responses, and communicates with the DisplayMessage component to show feedback.
+
 function SearchBar({ setInputSearch }) {
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("");

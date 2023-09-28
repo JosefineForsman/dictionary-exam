@@ -1,3 +1,6 @@
+// render the phonetic information, text + audio element.
+// Ensures that it displays information using ternary operators.
+// If there is no information, it does not display that section.
 function Phonetic({ phonetics }) {
   console.log(phonetics);
   return (

@@ -3,15 +3,17 @@ import { LikedWordContext } from "../LikedWordContext/LikedWordContext";
 import { useContext } from "react";
 import WordItem from "./WordItem/WordItem";
 
-// This  component is displaying the liked words from the user and also rendering a delete btn
-// if the user wants to delete a word.
+// This component, MyWordList, is responsible for displaying the liked words from the user's
+// favorites and rendering a delete button for each word. It interacts with the LikedWordContext
+// to manage liked words and their state, allowing users to delete specific words from their list.
+
 function MyWordList() {
   const { word, dispatch } = useContext(LikedWordContext);
 
   const handleDeleteClick = (id) => {
     const updatedWords = word.map((wordItem) => {
       if (wordItem.id === id) {
-        return { ...wordItem, isLiked: !wordItem.isLiked }; // add a isLiked state to display the color to the star. and only remove the color on the one that is being clicked.
+        return { ...wordItem, isLiked: !wordItem.isLiked };
       }
       return wordItem;
     });
