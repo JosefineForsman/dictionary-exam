@@ -1,14 +1,19 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import { setupServer } from "msw/node";
 import { rest } from "msw";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import WordItem from "./WordItem";
 import mockMyWords from "../../../test/mocks/mockMyWords.json";
 import LikedWordContextProvider from "../../LikedWordContext/LikedWordContext";
 import userEvent from "@testing-library/user-event";
 
+// This test file contains unit tests for the WordItem component. WordItem is responsible
+// for rendering individual word items in the "My Word List." These tests cover the rendering
+// of word items, toggling additional information on button click, and verifying the display
+// of all information about a liked word.
+// get mockMyWord from my json-file.
+
 const server = setupServer(
-  // Här kan du definiera mockade endpoints som du använder i dina tester
   rest.get(
     "https://api.dictionaryapi.dev/api/v2/entries/en/hello",
     (req, res, ctx) => {

@@ -2,6 +2,7 @@ import { it, describe, expect } from "vitest";
 import { render, screen } from "@testing-library/react";
 import Header from "./Header";
 
+//this component test functionality for togglebutton + favoritlist.
 describe(Header, () => {
   it("should render header", () => {
     render(<Header />);

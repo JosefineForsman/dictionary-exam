@@ -1,9 +1,12 @@
 import { describe, it, expect } from "vitest";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import SearchBar from "./SearchBar";
 
-// In this test file there is only functionality about how the searchBar should interact.
+// This test file contains test cases that focus on the interaction and behavior of the SearchBar component.
+// It tests the rendering of the SearchBar, updates to input values, handling of empty input searches,
+// and clearing of input values when the Enter key is pressed.
+
 const user = userEvent.setup();
 describe(SearchBar, () => {
   it(" should render SearchBar", () => {
@@ -37,6 +40,5 @@ describe(SearchBar, () => {
     await waitFor(() => {
       expect(input).toHaveValue("");
     });
-    screen.debug();
   });
 });

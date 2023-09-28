@@ -4,16 +4,14 @@ import App from "./App";
 import ThemeContextProvider from "./components/ThemeContext/ThemeContext";
 import userEvent from "@testing-library/user-event";
 
-// In this test file i have set up all test to see the interaction between the components.
-// I also wanted to try to test some different queries and matchers here to learn about the difference.
+// This test file contains a series of test cases that tests the interaction between components in the App.
+// It covers scenarios such as toggling themes, searching for words, adding/removing favorites, displaying error messages, and more.
 
 const user = userEvent.setup();
 describe(App, () => {
   it("should toggle dark theme in header component", async () => {
     render(
       <ThemeContextProvider>
-        {" "}
-        // Implemented provider to reach toggleTheme function.
         <App />
       </ThemeContextProvider>
     );
@@ -24,7 +22,6 @@ describe(App, () => {
     expect(header).not.toHaveClass("header dark");
     await user.click(toggleBtn);
     expect(header).toHaveClass("header dark");
-    screen.debug();
   });
   it("should show error message when trying to search with empty input", async () => {
     render(<App />);

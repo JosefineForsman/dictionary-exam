@@ -10,6 +10,9 @@ import mockWords from "../../test/mocks/mockWords.json";
 beforeAll(() => server.listen());
 afterAll(() => server.close());
 
+// this component render all information about a word with help of my json myWords.
+// it makes sure that the functionality for example my button "see more", works the way it should.
+
 describe("DisplayWord", () => {
   it("should display words when inputSearch is provided", () => {
     render(
