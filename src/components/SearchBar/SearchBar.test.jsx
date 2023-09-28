@@ -3,6 +3,7 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import SearchBar from "./SearchBar";
 
+// In this test file there is only functionality about how the searchBar should interact.
 const user = userEvent.setup();
 describe(SearchBar, () => {
   it(" should render SearchBar", () => {

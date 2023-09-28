@@ -5,6 +5,7 @@ import ThemeContextProvider from "./components/ThemeContext/ThemeContext";
 import userEvent from "@testing-library/user-event";
 
 // In this test file i have set up all test to see the interaction between the components.
+// I also wanted to try to test some different queries and matchers here to learn about the difference.
 
 const user = userEvent.setup();
 describe(App, () => {
@@ -110,7 +111,7 @@ describe(App, () => {
     const rats = await screen.findAllByText("rat");
     expect(rats.length).toBe(3);
   });
-  it.only("should be able to render synonyms and antonyms", async () => {
+  it("should be able to render synonyms and antonyms", async () => {
     render(<App />);
     const input = screen.getByRole("textbox");
     expect(input).toBeInTheDocument();
